@@ -22,6 +22,11 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.(scss|css)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        exclude: /node_modules/,
+      },
     ],
   },
   plugins: [
@@ -41,4 +46,9 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  devServer: {
+    host: 'localhost',
+    port: 3000,
+    open: true,
+  },
 };
